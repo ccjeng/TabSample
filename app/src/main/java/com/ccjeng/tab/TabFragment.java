@@ -10,8 +10,6 @@ import android.widget.FrameLayout;
 import android.widget.FrameLayout.LayoutParams;
 import android.widget.TextView;
 
-import com.ccjeng.news.R;
-
 /**
  * Created by andycheng on 2015/10/27.
  */
@@ -48,7 +46,7 @@ public class TabFragment extends Fragment {
         v.setLayoutParams(params);
         v.setLayoutParams(params);
         v.setGravity(Gravity.CENTER);
-        v.setBackgroundResource(R.color.colorBackground);
+        v.setBackgroundResource(R.color.windowBackground);
         v.setText("Tab " + (position + 1));
 
         fl.addView(v);

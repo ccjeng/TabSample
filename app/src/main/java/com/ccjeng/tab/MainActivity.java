@@ -15,29 +15,23 @@ import android.text.style.ImageSpan;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
-
 public class MainActivity extends AppCompatActivity {
 
-    @Bind(R.id.tabs)
-    TabLayout tabs;
-
-    @Bind(R.id.tool_bar)
-    Toolbar toolbar;
-
-    @Bind(R.id.pager)
-    ViewPager pager;
+    private Toolbar toolbar;
+    private ViewPager pager;
+    private TabLayout tabs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
 
+        toolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
 
+        pager = (ViewPager) findViewById(R.id.pager);
         pager.setAdapter(new ViewPagerAdapter(getSupportFragmentManager()));
+        tabs = (TabLayout) findViewById(R.id.tabs);
         tabs.setupWithViewPager(pager);
 
 
@@ -86,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public CharSequence getPageTitle(int position) {
             // Generate title based on item position
-            Drawable image = context.getResources().getDrawable(imageResId[position]);
+            Drawable image = MainActivity.this.getResources().getDrawable(imageResId[position]);
             image.setBounds(0, 0, image.getIntrinsicWidth(), image.getIntrinsicHeight());
             // Replace blank spaces with image icon
             SpannableString sb = new SpannableString("   " + tabTitles[position]);

@@ -1,4 +1,4 @@
-package com.ccjeng.news;
+package com.ccjeng.tab;
 
 import org.junit.Test;
 
